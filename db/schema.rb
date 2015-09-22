@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150922023656) do
+ActiveRecord::Schema.define(version: 20150922035201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "inventory_reports", force: :cascade do |t|
+    t.string   "technician_name"
+    t.integer  "dish_count"
+    t.integer  "cannister_count"
+    t.integer  "modem_count"
+    t.integer  "radio_count"
+    t.integer  "voip_count"
+    t.integer  "trimast_count"
+    t.integer  "upgradearm_count"
+    t.integer  "raven_upgrade_kit_count"
+    t.text     "notes"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

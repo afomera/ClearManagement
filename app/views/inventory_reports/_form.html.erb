@@ -1,0 +1,38 @@
+<%= simple_form_for(@inventory_report) do |f| %>
+<div class="col-md-10">
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :technician_name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :dish_count %>
+      <%= f.input :cannister_count %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :modem_count %>
+      <%= f.input :radio_count %>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-md-4">
+    <%= f.input :voip_count, label: "VoIPs / ATAs Count" %>
+    <%= f.input :trimast_count %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :upgradearm_count, label: "Upgrade arms" %>
+    <%= f.input :raven_upgrade_kit_count %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+
+      <%= f.input :notes, as: :text, placeholder: "Enter Additional counts like HN9000 Equipment" %>
+  </div>
+</div>
+
+  <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+<% end %>

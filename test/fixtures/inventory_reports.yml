@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  technician_name: MyString
+  dish_count: 1
+  cannister_count: 1
+  modem_count: 1
+  radio_count: 1
+  voip_count: 1
+  trimast_count: 1
+  upgradearm_count: 1
+  raven_upgrade_kit_count: 1
+  notes: MyText
+
+two:
+  technician_name: MyString
+  dish_count: 1
+  cannister_count: 1
+  modem_count: 1
+  radio_count: 1
+  voip_count: 1
+  trimast_count: 1
+  upgradearm_count: 1
+  raven_upgrade_kit_count: 1
+  notes: MyText

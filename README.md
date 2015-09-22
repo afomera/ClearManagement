@@ -15,6 +15,16 @@ Inventory Reports should include:
 * \# of Trimasts
 * \# of HN9000 Equipment
 
+** User Roles **
+> These roles help to define what a User can or cannot do based of the role. I.E Some users who are 'technicians' should not be able to do things like add technicians
+
+* Guest (cannot do anything. Needs to be 'promoted')
+* Technician (base level access, see Dashboard with information they may need/be relevant)
+* Lead Technician (manages techs, able to promote or demote Tech <-> Guest, able to see all of the techs information)
+* Employee
+* Administration 
+
+
 **Small Parts:**
 >This is consumable material used by the Technician on the job site.
 

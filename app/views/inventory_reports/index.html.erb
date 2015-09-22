@@ -1,0 +1,20 @@
+<h1>All Inventory Reports </h1>
+
+<% if @inventory_reports.empty? %>
+<h2>Sorry there are no inventory reports yet.</h2>
+<% end %>
+
+<% @inventory_reports.each do |inventory_report| %>
+  <div class="row">
+  <%= inventory_report.technician_name %>
+  <%= inventory_report.dish_count %>
+  <%= inventory_report.cannister_count %>
+  <%= inventory_report.modem_count %>
+  <%= inventory_report.radio_count %>
+  <%= inventory_report.raven_upgrade_kit_count %>
+  <%= inventory_report.upgradearm_count %>
+  <%= inventory_report.voip_count %>
+  <%= inventory_report.trimast_count %>
+  <%= inventory_report.notes %>
+</div>
+<% end %>
