@@ -3,6 +3,10 @@
 This application is for improving the ability to track equipment for my day job.
 
 ## Notes
+Time Management should include:
+- Ability to Track time spent on jobs
+* Needs: Date of work, job site, Time start, Time end, Description
+* Would like: Ability when generating card, to add up time spent to hours, and if the user is enabled for 2 hour min, then use that option for them if (time.end - time.start < 2 hours)
 
 Inventory Reports should include:
 * Tech it belongs to
