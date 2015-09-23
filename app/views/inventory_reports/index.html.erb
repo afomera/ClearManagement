@@ -2,6 +2,8 @@
 <% if @inventory_reports.empty? %>
 <h2>Sorry there are no inventory reports yet.</h2>
 <% end %>
+<%= link_to "Add Inventory Report", new_inventory_report_path, class: "btn btn-primary" %>
+<br><br>
 
 <table class="table table-bordered table-striped">
   <thead>
