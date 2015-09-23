@@ -7,19 +7,21 @@
   <thead>
       <tr>
         <th>Techician Name:</th>
-        <th>Dish Count:</th>
-        <th>Cannister Count:</th>
-        <th>Modem Count:</th>
-        <th>Radio Count:</th>
+        <th>Dishes:</th>
+        <th>Cannisters:</th>
+        <th>Modems:</th>
+        <th>Radios:</th>
         <th>Raven Upgrade Kits:</th>
         <th>Upgrade Arms:</th>
-        <th>VoIPs count:</th>
-        <th>Trimast Count:</th>
+        <th>VoIPs:</th>
+        <th>Trimasts:</th>
         <th>Notes:</th>
         <th>Date</th>
         <th>Actions:</th>
       </tr>
+
   </thead>
+
   <tbody>
     <% @inventory_reports.each do |inventory_report| %>
       <tr>
@@ -35,13 +37,49 @@
         <td><%= inventory_report.notes %></td>
         <td><%= inventory_report.created_at %></td>
         <td>
-          <%= link_to "Show", inventory_report_path(inventory_report) %> |
-          <%= link_to "Edit", edit_inventory_report_path(inventory_report) %> |
-          <%= link_to "Destroy", inventory_report_path(inventory_report), method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
+          <%= link_to edit_inventory_report_path(inventory_report) do %>
+            <i class="fa fa-pencil-square-o fa-2x"></i> &nbsp; &nbsp;
+          <% end %>
+          <%= link_to inventory_report_path(inventory_report), method: :delete, data: { confirm: "Are you sure you want to delete this?" } do %>
+            <i class="fa fa-trash-o fa-2x"></i>
+          <% end %>
         </td>
       </tr>
     <% end %>
+
+
+    <tr>
+      <th></th>
+      <th><%#= @inventory_reports.sum(:dish_count) %></th>
+      <th><%#= @inventory_reports.sum(:cannister_count) %></th>
+      <th><%#= @inventory_reports.sum(:modem_count) %></th>
+      <th><%#= @inventory_reports.sum(:radio_count) %></th>
+      <th><%#= @inventory_reports.sum(:raven_upgrade_kit_count) %></th>
+      <th><%#= @inventory_reports.sum(:upgradearm_count) %></th>
+      <th><%#= @inventory_reports.sum(:voip_count) %></th>
+      <th><%#= @inventory_reports.sum(:trimast_count) %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @inventory_total.each do |total| %>
+      <tr class="warning">
+        <td></td>
+        <td><%= total.dish_count %></td>
+        <td><%= total.cannister_count %></td>
+        <td><%= total.modem_count %></td>
+        <td><%= total.radio_count %></td>
+        <td><%= total.raven_upgrade_kit_count %></td>
+        <td><%= total.upgradearm_count %></td>
+        <td><%= total.voip_count %></td>
+        <td><%= total.trimast_count %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
   </tbody>
+
 </table>
 
 <% @inventory_reports.each do |inventory_report| %>

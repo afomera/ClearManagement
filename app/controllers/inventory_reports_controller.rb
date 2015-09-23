@@ -2,6 +2,8 @@ class InventoryReportsController < ApplicationController
   before_action :set_inventory_report, only: [:show, :edit, :update, :destroy]
   def index
     @inventory_reports = InventoryReport.order("created_at DESC")
+    @inventory_total = InventoryReport.select("sum(dish_count) as dish_count, sum(cannister_count) as cannister_count, sum(modem_count) as modem_count, sum(radio_count) as radio_count, sum(raven_upgrade_kit_count) as raven_upgrade_kit_count,
+    sum(upgradearm_count) as upgradearm_count, sum(voip_count) as voip_count, sum(trimast_count) as trimast_count")
   end
 
   def new
