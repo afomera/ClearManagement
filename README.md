@@ -13,7 +13,7 @@ Inventory Reports should include:
 * \# of upgrade kits (raven & prodilin)
 * \# of VoIPs/ATA's
 * \# of Trimasts
-* \# of HN9000 Equipment
+* Notes with HN9000 EQ or other things to note
 
 **User Roles**
 > These roles help to define what a User can or cannot do based of the role. I.E Some users who are 'technicians' should not be able to do things like add technicians
@@ -59,7 +59,6 @@ assignable to a Technician but not trackable and a Modem or Radio is assignable 
 * Technician
 
 
-
 ## Associations
 ```
 Vendor:
@@ -72,3 +71,6 @@ belong_to :vendor
 ## Wants / Goals
 * Ability to allow techs to 'request/order' Small Parts/Material
 * Ability to Invoice / Credit Technicians accounts
+* Ability to only get past 7 days of Inventory Reports
+* Pagination on Reports
+* Email Reminders to Technicians to submit reports & Email Reminder to Staff to send in compiled report Monday AM.
