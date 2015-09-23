@@ -1,20 +1,52 @@
 <h1>All Inventory Reports </h1>
-
 <% if @inventory_reports.empty? %>
 <h2>Sorry there are no inventory reports yet.</h2>
 <% end %>
 
+<table class="table table-bordered table-striped">
+  <thead>
+      <tr>
+        <th>Techician Name:</th>
+        <th>Dish Count:</th>
+        <th>Cannister Count:</th>
+        <th>Modem Count:</th>
+        <th>Radio Count:</th>
+        <th>Raven Upgrade Kits:</th>
+        <th>Upgrade Arms:</th>
+        <th>VoIPs count:</th>
+        <th>Trimast Count:</th>
+        <th>Notes:</th>
+        <th>Date</th>
+        <th>Actions:</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @inventory_reports.each do |inventory_report| %>
+      <tr>
+        <td><%= inventory_report.technician_name %></td>
+        <td><%= inventory_report.dish_count %></td>
+        <td><%= inventory_report.cannister_count %></td>
+        <td><%= inventory_report.modem_count %></td>
+        <td><%= inventory_report.radio_count %></td>
+        <td><%= inventory_report.raven_upgrade_kit_count %></td>
+        <td><%= inventory_report.upgradearm_count %></td>
+        <td><%= inventory_report.voip_count %></td>
+        <td><%= inventory_report.trimast_count %></td>
+        <td><%= inventory_report.notes %></td>
+        <td><%= inventory_report.created_at %></td>
+        <td>
+          <%= link_to "Show", inventory_report_path(inventory_report) %> |
+          <%= link_to "Edit", edit_inventory_report_path(inventory_report) %> |
+          <%= link_to "Destroy", inventory_report_path(inventory_report), method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <% @inventory_reports.each do |inventory_report| %>
   <div class="row">
-  <%= inventory_report.technician_name %>
-  <%= inventory_report.dish_count %>
-  <%= inventory_report.cannister_count %>
-  <%= inventory_report.modem_count %>
-  <%= inventory_report.radio_count %>
-  <%= inventory_report.raven_upgrade_kit_count %>
-  <%= inventory_report.upgradearm_count %>
-  <%= inventory_report.voip_count %>
-  <%= inventory_report.trimast_count %>
-  <%= inventory_report.notes %>
+
 </div>
+
 <% end %>

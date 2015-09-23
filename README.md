@@ -15,14 +15,23 @@ Inventory Reports should include:
 * \# of Trimasts
 * \# of HN9000 Equipment
 
-** User Roles **
+**User Roles**
 > These roles help to define what a User can or cannot do based of the role. I.E Some users who are 'technicians' should not be able to do things like add technicians
 
 * Guest (cannot do anything. Needs to be 'promoted')
 * Technician (base level access, see Dashboard with information they may need/be relevant)
 * Lead Technician (manages techs, able to promote or demote Tech <-> Guest, able to see all of the techs information)
 * Employee
-* Administration 
+* Administration
+
+**Technician**
+> This is a Technician but could be considered a Stocking Location
+
+* Name
+* Phone Number
+* Email Address
+* Address
+* Drop Location (where we drop shipments off)
 
 
 **Small Parts:**
@@ -47,8 +56,8 @@ Inventory Reports should include:
 assignable to a Technician but not trackable and a Modem or Radio is assignable AND trackable because it has a serial number with it.
 
 * Part
-* Location
-* assigned_to
+* Technician
+
 
 
 ## Associations
