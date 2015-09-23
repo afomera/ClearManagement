@@ -13,9 +13,14 @@
  *= require_tree .
  *= require_self
  */
+  $navbar-default-brand-color: #3399FF;
 
   @import "bootstrap-sprockets";
   @import "bootstrap";
 
   @import "font-awesome-sprockets";
   @import "font-awesome";
+
+  .navbar-brand {
+    font-weight: bold;
+  }
