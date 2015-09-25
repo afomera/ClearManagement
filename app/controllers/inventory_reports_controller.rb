@@ -1,5 +1,7 @@
 class InventoryReportsController < ApplicationController
   before_action :set_inventory_report, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
   def index
     @inventory_reports = InventoryReport.order("created_at DESC")
     @inventory_total = InventoryReport.select("sum(dish_count) as dish_count, sum(cannister_count) as cannister_count, sum(modem_count) as modem_count, sum(radio_count) as radio_count, sum(raven_upgrade_kit_count) as raven_upgrade_kit_count,
