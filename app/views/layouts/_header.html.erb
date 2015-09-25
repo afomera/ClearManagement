@@ -51,12 +51,12 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-support fa-fw"></i> Service Requests <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to root_path do %>
+                <%= link_to service_requests_path do %>
                   <i class="fa fa-list fa-fw"></i> All Requests
                 <% end %>
               </li>
               <li>
-                <%= link_to root_path do %>
+                <%= link_to new_service_request_path do %>
                   <i class="fa fa-plus-square-o fa-fw"></i>  New Service Request
                 <% end %>
               </li>

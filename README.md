@@ -3,6 +3,13 @@
 This application is for improving the ability to track equipment for my day job.
 
 ## Notes
+Service Requests should include:
+* Status (Open, In Progress, Completed, Closed)
+* Location
+* Customer Name
+* Customer Phone Number
+* Customer Email Address
+
 Time Management should include:
 - Ability to Track time spent on jobs
 * Needs: Date of work, job site, Time start, Time end, Description
