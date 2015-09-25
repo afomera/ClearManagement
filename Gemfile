@@ -13,7 +13,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'font-awesome-sass'
-
+gem 'local_time'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
