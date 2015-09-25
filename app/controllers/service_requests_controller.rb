@@ -25,7 +25,7 @@ class ServiceRequestsController < ApplicationController
 
   def create
     @service_request = ServiceRequest.new(service_request_params)
-    @service_request.status = "Open"
+    @service_request.status = "open"
     if @service_request.save
       redirect_to @service_request, notice: "Service Request has been submitted!"
     else

@@ -26,7 +26,7 @@
     <% end %>
     <% @service_requests.each do |request| %>
       <tr>
-        <td><%= request.status %></td>
+        <td><%= request.status.humanize %></td>
         <td><%= request.customer_name %></td>
         <td><%= request.customer_phone %></td>
         <td><%= request.customer_email %></td>

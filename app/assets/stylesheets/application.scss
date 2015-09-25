@@ -24,3 +24,7 @@
   .navbar-brand {
     font-weight: bold;
   }
+
+  .table-striped tbody tr .status-in_progress {
+    background: green;
+  }
