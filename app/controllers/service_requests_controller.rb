@@ -5,6 +5,16 @@ class ServiceRequestsController < ApplicationController
     @service_requests = ServiceRequest.order("created_at DESC")
   end
 
+  def open
+    @service_requests = ServiceRequest.status("open").order("created_at DESC")
+    render action: :index
+  end
+
+  def in_progress
+    @service_requests = ServiceRequest.status("in_progress").order("created_at DESC")
+    render action: :index
+  end
+
   def show
   end
 

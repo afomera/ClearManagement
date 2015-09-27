@@ -3,6 +3,10 @@
 <h2>There have been no service requests yet.</h2>
 <% end %>
 <%= link_to "Add Service Request", new_service_request_path, class: "btn btn-primary" %>
+<div class="pull-right">
+<%= link_to "Open Service Requests", open_service_requests_path, class: "btn btn-success" %>
+<%= link_to "In Progress Service Requests", in_progress_service_requests_path, class: "btn btn-info" %>
+</div>
 <br><br>
 <% unless @service_requests.empty? %>
 <table class="table table-bordered table-striped">
