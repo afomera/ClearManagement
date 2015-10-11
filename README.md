@@ -3,6 +3,18 @@
 This application is for improving the ability to track equipment for my day job.
 
 ## Notes
+Activity:
+```
+Activity.rb
+---
+belongs_to :service_request
+has_one :user
+has_many :photos
+
+Service Request:
+has_many :activities
+```
+
 Service Requests should include:
 * Status (Open, In Progress, Completed, Closed)
 * Location
