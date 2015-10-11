@@ -54,6 +54,6 @@ class ServiceRequestsController < ApplicationController
     end
 
     def service_request_params
-      params.require(:service_request).permit(:customer_name, :customer_phone, :customer_email, :address, :apartment, :city, :zipcode, :description, :status)
+      params.require(:service_request).permit(:customer_name, :customer_phone, :customer_email, :address, :apartment, :city, :state, :zipcode, :description, :status)
     end
 end
