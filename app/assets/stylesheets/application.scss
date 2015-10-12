@@ -15,6 +15,8 @@
  */
   $navbar-default-brand-color: #3399FF;
 
+  @import "clearmanagement/forms";
+
   @import "bootstrap-sprockets";
   @import "bootstrap";
 
