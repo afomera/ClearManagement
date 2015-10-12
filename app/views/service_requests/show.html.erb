@@ -22,7 +22,28 @@
   </div><!-- End col-md for customer panel -->
 
   <div class="col-md-8">
-    Going to put address / complaint here.
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Actions</h3>
+        </div>
+        <div class="panel-body">
+          Modify Status | Add Action / Resolution
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Customer Complaint</h3>
+        </div>
+        <div class="panel-body">
+          <%= @service_request.description %>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div><!-- End Row For Customer / SR information -->
 
