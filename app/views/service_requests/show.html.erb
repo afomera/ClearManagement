@@ -1,1 +1,31 @@
-<%= @service_request.customer_name %>
+<h2>Service Request #<%= @service_request.id %> &nbsp;<span class="label label-default"><%= @service_request.status.humanize %></span></h2>
+<hr />
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Customer Information</h3>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Name:</strong> <%= @service_request.customer_name %></li>
+        <li class="list-group-item"><strong>Email:</strong> <%= @service_request.customer_email_address %></li>
+        <li class="list-group-item"><strong>Phone:</strong> <%= @service_request.customer_phone_number %></li>
+      </ul>
+      <div class="panel-body">
+        <address>
+          <strong>Address:</strong><br />
+          <%= @service_request.address %>, <% if !@service_request.apartment.empty? %>Apt <%= @service_request.apartment %><% end %><br>
+          <%= @service_request.city %>, <%= @service_request.state %> <%= @service_request.zipcode %><br>
+        </address>
+      </div>
+    </div>
+  </div><!-- End col-md for customer panel -->
+
+  <div class="col-md-8">
+    Going to put address / complaint here.
+  </div>
+</div><!-- End Row For Customer / SR information -->
+
+<div class="row">
+  lol
+</div>

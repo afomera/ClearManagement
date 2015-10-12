@@ -12,6 +12,7 @@
 <table class="table table-bordered table-striped">
   <thead>
       <tr>
+        <th>ID:</th>
         <th>Status</th>
         <th>Name:</th>
         <th>Phone:</th>
@@ -31,10 +32,11 @@
     <% end %>
     <% @service_requests.each do |request| %>
       <tr>
+        <td><%= link_to request.id, service_request_path(request.id) %></td>
         <td><%= request.status.humanize %></td>
         <td><%= request.customer_name %></td>
-        <td><%= request.customer_phone %></td>
-        <td><%= request.customer_email %></td>
+        <td><%= request.customer_phone_number %></td>
+        <td><%= request.customer_email_address %></td>
         <td><%= request.address %> <%= request.apartment %></td>
         <td><%= request.city %></td>
         <td><%= request.state %></td>
