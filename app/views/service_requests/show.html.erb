@@ -28,13 +28,42 @@
           <h3 class="panel-title">Actions</h3>
         </div>
         <div class="panel-body">
-          Modify Status | Add Action / Resolution
+
+          <!-- Single button -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Modify Status <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+            <% if @service_request.status == "open" %>
+              <li>
+                <%= link_to make_inprogress_service_request_path(@service_request), method: :patch do %>
+                  Mark as In Progress
+                <% end %>
+              </li>
+            <% end %>
+            <% if @service_request.status == "closed" %>
+              <li>
+                <%= link_to reopen_service_request_path(@service_request), method: :patch do %>
+                  Re-open Service Request
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to close_service_request_path(@service_request), method: :patch do %>
+                  Close Service Request
+                <% end %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+         Add Action / Resolution
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="panel panel-default">
+      <div class="panel panel-warning">
         <div class="panel-heading">
           <h3 class="panel-title">Customer Complaint</h3>
         </div>

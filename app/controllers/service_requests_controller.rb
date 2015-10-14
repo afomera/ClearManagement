@@ -1,5 +1,5 @@
 class ServiceRequestsController < ApplicationController
-  before_action :set_service_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_service_request, only: [:show, :edit, :update, :destroy, :close, :reopen, :make_inprogress]
   before_action :authenticate_user!
   def index
     @service_requests = ServiceRequest.order("created_at DESC")
@@ -46,6 +46,31 @@ class ServiceRequestsController < ApplicationController
   def destroy
     @service_request.destroy
     redirect_to service_requests_path, notice: "That request has been destroyed!"
+  end
+
+  def close
+    #@service_request.status = "closed"
+    if @service_request.update_attribute(:status, "closed")
+      redirect_to @service_request, notice: "Closed service request ##{@service_request.id}"
+    else
+      redirect_to @service_request, notice: "An error occurred"
+    end
+  end
+
+  def reopen
+    if @service_request.update_attribute(:status, "open")
+      redirect_to @service_request, notice: "Re-opened service request ##{@service_request.id}"
+    else
+      redirect_to @service_request, notice: "An error occurred"
+    end
+  end
+
+  def make_inprogress
+    if @service_request.update_attribute(:status, "in_progress")
+      redirect_to @service_request, notice: "Marked service request ##{@service_request.id} as in-progress"
+    else
+      redirect_to @service_request, notice: "An error occurred"
+    end
   end
 
   private
