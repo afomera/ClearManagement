@@ -2,7 +2,9 @@
 <% if @inventory_reports.empty? %>
 <h2>Sorry there are no inventory reports yet.</h2>
 <% end %>
+<% if policy(InventoryReport).new? %>
 <%= link_to "Add Inventory Report", new_inventory_report_path, class: "btn btn-primary" %>
+<% end %>
 <br><br>
 
 <table class="table table-bordered table-striped">
@@ -19,7 +21,9 @@
         <th>Trimasts:</th>
         <th>Notes:</th>
         <th>Date</th>
+        <% if policy(InventoryReport).edit? || policy(InventoryReport).destroy? %>
         <th>Actions:</th>
+        <% end %>
       </tr>
 
   </thead>
@@ -37,14 +41,15 @@
         <td><%= inventory_report.voip_count %></td>
         <td><%= inventory_report.trimast_count %></td>
         <td><%= inventory_report.notes %></td>
-        <td><%= inventory_report.created_at %></td>
+        <td><%= local_time inventory_report.created_at %></td>
         <td>
           <%= link_to edit_inventory_report_path(inventory_report) do %>
-            <i class="fa fa-pencil-square-o fa-2x"></i> &nbsp; &nbsp;
-          <% end %>
+            <i class="fa fa-pencil-square-o fa-2x"></i>
+          <% end if policy(inventory_report).edit? %>
+          &nbsp; &nbsp;
           <%= link_to inventory_report_path(inventory_report), method: :delete, data: { confirm: "Are you sure you want to delete this?" } do %>
             <i class="fa fa-trash-o fa-2x"></i>
-          <% end %>
+          <% end if policy(inventory_report).destroy? %>
         </td>
       </tr>
     <% end %>
@@ -83,10 +88,3 @@
   </tbody>
 
 </table>
-
-<% @inventory_reports.each do |inventory_report| %>
-  <div class="row">
-
-</div>
-
-<% end %>
