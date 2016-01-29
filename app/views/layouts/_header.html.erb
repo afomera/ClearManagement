@@ -8,14 +8,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "ClearManagement", root_path, class: "navbar-brand" %>
+      <%= link_to "{ClearManagement}", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <% if user_signed_in? %>
       <ul class="nav navbar-nav">
-
+        <li>
+          <%= link_to inventory_reports_path do %>
+              <%= fa_icon 'file-o fa-fw', text: 'Inventory Count' %>
+          <% end %>
+        </li>
+        <!--
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-o fa-fw"></i> Inventory Reports <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -31,7 +36,8 @@
               </li>
             </ul>
           </li>
-
+        -->
+        <!--
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clock-o fa-fw"></i> Timecard <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -47,6 +53,29 @@
               </li>
             </ul>
           </li>
+        -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-money fa-fw"></i> Paysheets <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to root_path do %>
+                  <i class="fa fa-list-alt fa-fw"></i> Current Paysheets
+                <% end %>
+              </li>
+              <li>
+                <%= link_to root_path do %>
+                  <i class="fa fa-search fa-fw"></i>  Search Paysheets
+                <% end %>
+              </li>
+              <li>
+                <%= link_to root_path do %>
+                  <i class="fa fa-plus-square-o fa-fw"></i>  Add Paysheet
+                <% end %>
+              </li>
+            </ul>
+          </li>
+
+
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-support fa-fw"></i> Service Requests <span class="caret"></span></a>
@@ -76,6 +105,22 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-fw"></i> <%= current_user.full_name %><span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li>
+                <%= link_to root_path do %>
+                  <i class="fa fa-users fa-fw"></i> Manage Technicians
+                <% end %>
+              </li>
+              <li>
+                <%= link_to root_path do %>
+                  <i class="fa fa-university fa-fw"></i> Import ACH Payments
+                <% end %>
+              </li>
+              <li>
+                <%= link_to root_path do %>
+                  <i class="fa fa-files-o fa-fw"></i> Reports
+                <% end %>
+              </li>
+              <li class="divider"></li>
               <li>
                 <%= link_to edit_user_registration_path do %>
                     <i class="fa fa-cog fa-fw"></i> Manage Account

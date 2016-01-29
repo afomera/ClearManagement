@@ -16,11 +16,11 @@
   $navbar-default-brand-color: #3399FF;
 
   @import "clearmanagement/forms";
+  @import "clearmanagement/turbolinks";
 
   @import "bootstrap-sprockets";
   @import "bootstrap";
 
-  @import "font-awesome-sprockets";
   @import "font-awesome";
 
   .navbar-brand {

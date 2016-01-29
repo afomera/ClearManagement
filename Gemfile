@@ -12,7 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'simple_form', '~> 3.2.1'
 gem 'devise', '~> 3.5.3'
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem 'local_time'
 gem 'pundit' # For authorizing
 
