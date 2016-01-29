@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
   devise_for :users
 
   resources :inventory_reports
@@ -13,7 +14,5 @@ Rails.application.routes.draw do
         get :in_progress
     end
   end
-  root to: "pages#home"
-  get 'pages/home'
-
+  
 end
