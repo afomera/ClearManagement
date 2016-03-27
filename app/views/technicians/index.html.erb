@@ -1,0 +1,14 @@
+<%= link_to "Add Technician", new_technician_path %>
+<hr>
+<% @technician.each do |tech| %>
+  <div>
+    <%= tech.name %> | <%= tech.phone_number %> | <%= tech.email %> <br>
+    <%= link_to edit_technician_path(tech) do %>
+      <i class="fa fa-pencil-square-o fa-2x"></i>
+    <% end %>
+    &nbsp; &nbsp;
+    <%= link_to technician_path(tech), method: :delete, data: { confirm: "Are you sure you want to delete this?" } do %>
+      <i class="fa fa-trash-o fa-2x"></i>
+    <% end %>
+  </div>
+<% end %>

@@ -14,5 +14,6 @@ Rails.application.routes.draw do
         get :in_progress
     end
   end
-  
+  resources :technicians
+
 end
