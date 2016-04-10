@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     end
   end
   resources :technicians
+  resources :payment_imports, only: [:index, :new, :create]
 
 end
