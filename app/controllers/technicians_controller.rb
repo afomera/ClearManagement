@@ -1,6 +1,6 @@
 class TechniciansController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_technican, only: [:show, :update, :edit, :destroy]
+  before_action :set_technician, only: [:show, :update, :edit, :destroy]
 
   def index
     @technician = Technician.all
@@ -10,7 +10,7 @@ class TechniciansController < ApplicationController
     @technician = Technician.new(technician_params)
 
     if @technician.save
-      redirect_to root_path, notice: 'Technician has been added'
+      redirect_to technicians_path, notice: 'Technician has been added'
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class TechniciansController < ApplicationController
 
   def update
     if @technician.update(technician_params)
-      redirect_to root_path, notice: 'Technician has been updated'
+      redirect_to technicians_path, notice: 'Technician has been updated'
     else
       render 'edit'
     end
@@ -36,7 +36,7 @@ class TechniciansController < ApplicationController
 
   def destroy
     @technician.destroy
-    redirect_to root_path, notice: 'Technician has been deleted'
+    redirect_to technicians_path, notice: 'Technician has been deleted'
   end
 
   private
@@ -44,7 +44,7 @@ class TechniciansController < ApplicationController
       params.require(:technician).permit(:name, :phone_number, :email)
     end
 
-    def set_technican
+    def set_technician
       @technician = Technician.find(params[:id])
     end
 end
