@@ -7,6 +7,8 @@
            <th>Phone Number</th>
            <th>Email</th>
            <th>Address</th>
+           <th>lat</th>
+           <th>long</th>
            <th></th>
          </tr>
        </thead>
@@ -25,6 +27,12 @@
            </td>
            <td>
             <%= technician.address %>
+           </td>
+           <td>
+            <%= technician.latitude %>
+           </td>
+           <td>
+            <%= technician.longitude %>
            </td>
            <td>
              <%= link_to edit_technician_path(technician) do %>
