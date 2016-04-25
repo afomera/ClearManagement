@@ -2,6 +2,13 @@
 
 This application is for improving the ability to track equipment for my day job.
 
+
+## User Stories to work towards
+- As a user I want to be able to message technicians and receive replies to the messages.
+  - The ability to send predetermined messages would be useful. (Ex: 'Looking for an ETA for your PM jobs', 'What did you do on your Repairs?')
+- As a user I want to be able to see the location of all of the technician's homes on a map on the technicians page.
+- As a user I want to be able to deactivate / reactivate technicians when they leave or are hired back. 
+
 ## Notes
 Activity:
 ```

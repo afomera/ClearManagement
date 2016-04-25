@@ -25,3 +25,6 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'bullet'
 end
+
+# Geocoder for looking up lat/long
+gem 'geocoder'
