@@ -47,3 +47,61 @@
          <% end %>
        </tbody>
      </table>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Map</h3>
+      <div id='map' style='width: 600px; height: 500px;' />
+    <script>
+      mapboxgl.accessToken = '<%= Rails.application.secrets.mapbox_key %>';
+      
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v8',
+        attributionControl: false
+      });
+    map.setZoom(7);
+    map.setCenter(["-87.544834", "33.1479767"]);
+    map.addControl(new mapboxgl.Attribution({position: 'bottom-left'}));
+    map.addControl(new mapboxgl.Navigation());
+
+    map.on('load', function () {
+
+      map.addSource("markers", {
+          "type": "geojson",
+          "data": {
+              "type": "FeatureCollection",
+              "features": [
+                <% @technician.each do |technician| %>
+                  {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [<%= technician.longitude %>, <%= technician.latitude %>] // Long then lat
+                    },  "properties": {
+                          "title": "<%= technician.name %>",
+                          "marker-symbol": "monument",
+                          "marker-size": "small"
+                      }
+                  },
+                <% end %>
+              ]
+          }
+      });
+
+      map.addLayer({
+          "id": "markers",
+          "type": "symbol",
+          "source": "markers",
+          "layout": {
+              "icon-image": "{marker-symbol}-15",
+              "text-field": "{title}",
+              "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+              "text-offset": [0, 0.6],
+              "text-anchor": "top"
+          }
+      });
+    });
+    </script>
+    </div>
+  </div>
