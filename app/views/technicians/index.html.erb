@@ -51,10 +51,10 @@
   <div class="row">
     <div class="col-sm-12">
       <h3>Map</h3>
-      <div id='map' style='width: 600px; height: 500px;' />
+      <div id='map' style='width: 800px; height: 600px;' />
     <script>
       mapboxgl.accessToken = '<%= Rails.application.secrets.mapbox_key %>';
-      
+
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v8',
