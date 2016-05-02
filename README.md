@@ -6,8 +6,18 @@ This application is for improving the ability to track equipment for my day job.
 ## User Stories to work towards
 - As a user I want to be able to message technicians and receive replies to the messages.
   - The ability to send predetermined messages would be useful. (Ex: 'Looking for an ETA for your PM jobs', 'What did you do on your Repairs?')
-- As a user I want to be able to see the location of all of the technician's homes on a map on the technicians page.
-- As a user I want to be able to deactivate / reactivate technicians when they leave or are hired back. 
+- **As a user I want to be able to see the location of all of the technician's homes on a map on the technicians page.(DONE)**
+- As a user I want to be able to deactivate / reactivate technicians when they leave or are hired back.
+
+## Misc Thoughts on the Messaging Situation
+- Need to be able to see the conversation between the technician and the sender/staff (be it app user/company or whatnot).
+- When a reply comes in from a phone number that is known it will be added to the conversation itself.
+- when a reply comes in from a phone number that is unknown an error will dispatch an email to the admins
+- When a message is sent from the staff it is sent via twilio's api to the phone number of the tech on file / added to the conversation
+- Conversation belongs_to :technician & :user, allows us to do current_user.conversations/technician.conversations?(would a has_one be better for the technician as they can only have one)
+- Would like the conversation to be in a modal window similar to how Twitters DMs are. Easy to type a reply and click enter/send. replying on the techs side is just a reply via text so format on mobile really doesn't matter here too much.
+
+
 
 ## Notes
 Activity:
