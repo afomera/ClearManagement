@@ -13,7 +13,11 @@
          </tr>
        </thead>
        <tbody>
-
+         <% if @technician.empty? %>
+           <tr>
+             <td colspan="7" class="text-center">Sorry, no technicians could be found. You should <%= link_to "create a technician", new_technician_path %> to fix this</td>
+           </tr>
+         <% end %>
          <% @technician.each do |technician| %>
          <tr>
            <td>

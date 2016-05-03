@@ -2,7 +2,7 @@ class Technician < ActiveRecord::Base
   validates_presence_of :name, :phone_number, :email, :street, :city, :state, :zipcode
 
   belongs_to :user
-  has_one :conversation
+  has_one :conversation, :dependent => :destroy
 
   geocoded_by :address
   after_validation :geocode
