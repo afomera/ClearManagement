@@ -17,7 +17,10 @@ This application is for improving the ability to track equipment for my day job.
 - Conversation belongs_to :technician & :user, allows us to do current_user.conversations/technician.conversations?(would a has_one be better for the technician as they can only have one)
 - Would like the conversation to be in a modal window similar to how Twitters DMs are. Easy to type a reply and click enter/send. replying on the techs side is just a reply via text so format on mobile really doesn't matter here too much.
 
-
+## More ideas real quick to jot down
+- Technician view can hold the Conversation which holds all the messages / gives a form to send a reply
+- also can act as a sort of dashboard of records for the future like payment records/equipment stock and so forth.
+- For the moment, going with a Conversations view which you can click on a person -> then see the messages, ideally will move this to the technician page in the future.
 
 ## Notes
 Activity:

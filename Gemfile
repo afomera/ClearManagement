@@ -28,3 +28,6 @@ end
 
 # Geocoder for looking up lat/long
 gem 'geocoder'
+
+# Twilio for text messaging / phone system
+gem 'twilio-ruby', '~> 4.11.1'

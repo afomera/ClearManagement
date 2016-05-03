@@ -1,0 +1,5 @@
+class AddUsersToTechnicians < ActiveRecord::Migration
+  def change
+    add_reference :technicians, :user, index: true, foreign_key: true
+  end
+end

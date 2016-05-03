@@ -1,0 +1,10 @@
+<h1>Conversations Index</h1>
+Lists all the conversations here
+
+<% @conversations.each do |conversation| %>
+  <div>
+    Technician <%= conversation.technician.name %> - <%= conversation.technician.phone_number %><br>
+    <%= link_to "View Conversation", conversation_messages_path(conversation) %><br>
+    <hr>
+  </div>
+<% end %>

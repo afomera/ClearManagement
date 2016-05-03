@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
+  
+  resources :conversations, only: [:index, :show] do
+    resources :messages, module: :conversations, only: [:index, :new, :create, :show]
+  end
 
   resources :inventory_reports
   resources :service_requests do

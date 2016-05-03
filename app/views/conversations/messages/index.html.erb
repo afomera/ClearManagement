@@ -1,0 +1,10 @@
+<h1>Conversation (ID: <%= @conversation.id %>) Messages Index</h1>
+User: <%= @conversation.user.full_name %><br>
+Tech: <%= @conversation.technician.name %> <%= @conversation.technician.phone_number %><br>
+Messages:
+<hr>
+<%# Loop through @conversation.messages here %>
+<%# @conversation.messages.each do |message| %>
+<%# end %>
+<hr>
+Form to send a message from index of conversation messages
