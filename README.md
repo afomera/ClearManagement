@@ -22,6 +22,20 @@ This application is for improving the ability to track equipment for my day job.
 - also can act as a sort of dashboard of records for the future like payment records/equipment stock and so forth.
 - For the moment, going with a Conversations view which you can click on a person -> then see the messages, ideally will move this to the technician page in the future.
 
+
+```Message.rb
+# https://www.twilio.com/docs/api/rest/message
+status - pending, sent, delivered, received, undelivered, failed
+body - content of the text message (up to 1600 characters long)
+Direction - The direction of this message. inbound for incoming messages, outbound-api for messages initiated via the REST API, outbound-call for messages initiated during a call or outbound-reply for messages initiated in response to an incoming message.
+sid - Unique ID that identifies the resource
+MessagingServiceSid - MessagingService SID if used, otherwise will be null
+From - Outgoing messages will be from one of the Twilio numbers on the account, incoming messages it will be from the sender.
+To - Recipient of the message, for outgoing ones, it'll be the destination phone number, incoming will be one of the Twilio numbers
+media -
+```
+
+
 ## Notes
 Activity:
 ```
