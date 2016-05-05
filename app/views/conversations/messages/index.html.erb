@@ -1,13 +1,20 @@
-<h1>Conversation (ID: <%= @conversation.id %>) Messages Index</h1>
-User: <%= @conversation.user.full_name %><br>
-Tech: <%= @conversation.technician.name %> <%= @conversation.technician.phone_number %><br>
-Messages:
+<h1>Conversation with <%= @conversation.technician.name %></h1>
+<em>Between <%= @conversation.user.full_name %> and <%= @conversation.technician.name %></em>
+
+<h3>Messages:</h3>
+
+<% if @conversation.messages.empty? %>
+  <h4>There have been no messages sent or received yet </h4>
+  <p>Type below to send the first message</p>
+<% end %>
+
 <hr>
-<%# Loop through @conversation.messages here %>
+
 <% @conversation.messages.each do |message| %>
   <div>
-    <%= message.id %> | To: <%= message.to %>, From: <%= message.from %>, Body: <%= message.body %>
+    <%= message.id %> | To: <%= message.to %> From: <%= message.from %> | Body: <%= message.body %>
     <hr>
   </div>
 <% end %>
-Form to send a message from index of conversation messages
+
+<%= render 'form', remote: true, :conversation => @conversation %>
