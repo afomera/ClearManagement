@@ -31,3 +31,6 @@ gem 'geocoder'
 
 # Twilio for text messaging / phone system
 gem 'twilio-ruby', '~> 4.11.1'
+
+# Background jobs
+gem 'sucker_punch'

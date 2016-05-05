@@ -15,6 +15,7 @@ class Conversations::MessagesController < ApplicationController
     @message.update(to: @conversation.technician.phone_number, status: 'pending', direction: 'outbound-api')
 
     if @message.save
+      SendSmsJob.perform_later(@message)
       redirect_to conversation_messages_path(@conversation)
     else
       redirect_to conversation_messages_path(@conversation), notice: 'Something went wrong. Please try again'

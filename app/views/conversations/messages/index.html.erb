@@ -11,9 +11,16 @@
 <hr>
 
 <% @conversation.messages.each do |message| %>
-  <div class="alert <%= message.from ? 'alert-info' : 'alert-success text-right' %>">
-    <%= message.id %> | To: <%= message.to %> From: <%= message.from %> | Body: <%= message.body %>
+<div class="clearfix message-bubble <%= message.id %>">
+  <div class="alert <%= message.from ? 'alert-info message-inbound' : 'alert-success message-outbound' %>">
+    <%= message.body %>
+     <div class="text-right">
+       <small><%= local_time message.created_at %> </small>
+       <% if message.status == "sent" %><small>sent</small><% end %>
+     </div>
   </div>
+
+</div>
 <% end %>
 
 <%= render 'form', remote: true, :conversation => @conversation %>
