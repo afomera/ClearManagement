@@ -2,7 +2,7 @@
 <em>Between <%= @conversation.user.full_name %> and <%= @conversation.technician.name %></em>
 
 <h3>Messages:</h3>
-
+<div class="col-sm-8">
 <% if @conversation.messages.empty? %>
   <h4>There have been no messages sent or received yet </h4>
   <p>Type below to send the first message</p>
@@ -11,10 +11,10 @@
 <hr>
 
 <% @conversation.messages.each do |message| %>
-  <div>
+  <div class="alert <%= message.from ? 'alert-info' : 'alert-success text-right' %>">
     <%= message.id %> | To: <%= message.to %> From: <%= message.from %> | Body: <%= message.body %>
-    <hr>
   </div>
 <% end %>
 
 <%= render 'form', remote: true, :conversation => @conversation %>
+</div>
