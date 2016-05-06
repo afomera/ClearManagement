@@ -27,7 +27,7 @@ class Conversations::MessagesController < ApplicationController
   end
 
   def reply
-    from = params[:From].delete('+1')
+    from = params[:From].gsub(/^\+\d/, '')
     body = params[:Body]
     status = params[:SmsStatus]
     direction = 'inbound'
