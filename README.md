@@ -2,38 +2,11 @@
 
 This application is for improving the ability to track equipment for my day job.
 
-
 ## User Stories to work towards
-- As a user I want to be able to message technicians and receive replies to the messages.
+- **As a user I want to be able to message technicians and receive replies to the messages.(DONE)**
   - The ability to send predetermined messages would be useful. (Ex: 'Looking for an ETA for your PM jobs', 'What did you do on your Repairs?')
 - **As a user I want to be able to see the location of all of the technician's homes on a map on the technicians page.(DONE)**
 - As a user I want to be able to deactivate / reactivate technicians when they leave or are hired back.
-
-## Misc Thoughts on the Messaging Situation
-- Need to be able to see the conversation between the technician and the sender/staff (be it app user/company or whatnot).
-- When a reply comes in from a phone number that is known it will be added to the conversation itself.
-- when a reply comes in from a phone number that is unknown an error will dispatch an email to the admins
-- When a message is sent from the staff it is sent via twilio's api to the phone number of the tech on file / added to the conversation
-- Conversation belongs_to :technician & :user, allows us to do current_user.conversations/technician.conversations?(would a has_one be better for the technician as they can only have one)
-- Would like the conversation to be in a modal window similar to how Twitters DMs are. Easy to type a reply and click enter/send. replying on the techs side is just a reply via text so format on mobile really doesn't matter here too much.
-
-## More ideas real quick to jot down
-- Technician view can hold the Conversation which holds all the messages / gives a form to send a reply
-- also can act as a sort of dashboard of records for the future like payment records/equipment stock and so forth.
-- For the moment, going with a Conversations view which you can click on a person -> then see the messages, ideally will move this to the technician page in the future.
-
-
-```Message.rb
-# https://www.twilio.com/docs/api/rest/message
-status - pending, sent, delivered, received, undelivered, failed
-body - content of the text message (up to 1600 characters long)
-Direction - The direction of this message. inbound for incoming messages, outbound-api for messages initiated via the REST API, outbound-call for messages initiated during a call or outbound-reply for messages initiated in response to an incoming message.
-sid - Unique ID that identifies the resource
-MessagingServiceSid - MessagingService SID if used, otherwise will be null
-From - Outgoing messages will be from one of the Twilio numbers on the account, incoming messages it will be from the sender.
-To - Recipient of the message, for outgoing ones, it'll be the destination phone number, incoming will be one of the Twilio numbers
-media -
-```
 
 
 ## Notes
