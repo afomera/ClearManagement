@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425030222) do
+ActiveRecord::Schema.define(version: 20160504025929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "technician_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "conversations", ["technician_id"], name: "index_conversations_on_technician_id", using: :btree
+  add_index "conversations", ["user_id"], name: "index_conversations_on_user_id", using: :btree
 
   create_table "inventory_reports", force: :cascade do |t|
     t.string   "technician_name"
@@ -30,6 +40,21 @@ ActiveRecord::Schema.define(version: 20160425030222) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.string   "status"
+    t.string   "direction"
+    t.string   "sid"
+    t.string   "messaging_service_sid"
+    t.string   "from"
+    t.string   "to"
+    t.integer  "conversation_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
 
   create_table "service_requests", force: :cascade do |t|
     t.string   "customer_name"
@@ -58,7 +83,10 @@ ActiveRecord::Schema.define(version: 20160425030222) do
     t.string   "zipcode"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "user_id"
   end
+
+  add_index "technicians", ["user_id"], name: "index_technicians_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -81,4 +109,8 @@ ActiveRecord::Schema.define(version: 20160425030222) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "conversations", "technicians"
+  add_foreign_key "conversations", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "technicians", "users"
 end

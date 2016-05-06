@@ -1,0 +1,27 @@
+<h1>Conversation with <%= @conversation.technician.name %></h1>
+<em>Between <%= @conversation.user.full_name %> and <%= @conversation.technician.name %></em>
+
+<h3>Messages:</h3>
+<div class="col-sm-8">
+<% if @conversation.messages.empty? %>
+  <h4>There have been no messages sent or received yet </h4>
+  <p>Type below to send the first message</p>
+<% end %>
+
+<hr>
+
+<% @conversation.messages.each do |message| %>
+<div class="clearfix message-bubble <%= message.id %>">
+  <div class="alert <%= message.from ? 'alert-info message-inbound' : 'alert-success message-outbound' %>">
+    <%= message.body %>
+     <div class="text-right">
+       <small><%= local_time message.created_at %> </small>
+       <% if message.status == "sent" %><small>sent</small><% end %>
+     </div>
+  </div>
+
+</div>
+<% end %>
+
+<%= render 'form', remote: true, :conversation => @conversation %>
+</div>

@@ -13,7 +13,11 @@
          </tr>
        </thead>
        <tbody>
-
+         <% if @technician.empty? %>
+           <tr>
+             <td colspan="7" class="text-center">Sorry, no technicians could be found. You should <%= link_to "create a technician", new_technician_path %> to fix this</td>
+           </tr>
+         <% end %>
          <% @technician.each do |technician| %>
          <tr>
            <td>
@@ -42,6 +46,7 @@
              <%= link_to technician_path(technician), method: :delete, data: { confirm: "Are you sure you want to delete this?" } do %>
                <i class="fa fa-trash-o fa-2x"></i>
              <% end %>
+
            </td>
          </tr>
          <% end %>
