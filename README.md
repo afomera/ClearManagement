@@ -1,13 +1,22 @@
 # README
 
-This application is for improving the ability to track equipment for my day job.
+This application serves a few purposes for my day job, focusing on improving coordination with better communication tools. With better tools productivity can be increased.
+
+## To-Do
+- Refactor Inventory Reports to make room for Wireless Routers & Technician selection via dropdown
+- Figure out a way to scope Inventory Reports weekly, so on Monday when reports are entered it goes for a week until the next Monday.
+- Finish up Service Request's functionality.
+- Add 'Activity' to Service Requests to allow users to update ServiceRequests with notes/actions taken.
+- Allow the ability to upload photos to Service Requests. (Useful for things like Speedtests/Damages etc.)
+- Determine a way to have notifications for Messages/Service Requests etc.
+- Metrics for service requests, most common complaint, reasons for issues etc.
 
 ## User Stories to work towards
 - **As a user I want to be able to message technicians and receive replies to the messages.(DONE)**
   - The ability to send predetermined messages would be useful. (Ex: 'Looking for an ETA for your PM jobs', 'What did you do on your Repairs?')
 - **As a user I want to be able to see the location of all of the technician's homes on a map on the technicians page.(DONE)**
 - As a user I want to be able to deactivate / reactivate technicians when they leave or are hired back.
-
+- As a user I want to be able to select a Technician's name from a dropdown on the Inventory Reports page.
 
 ## Notes
 Activity:
