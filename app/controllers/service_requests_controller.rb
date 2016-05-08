@@ -1,5 +1,5 @@
 class ServiceRequestsController < ApplicationController
-  before_action :set_service_request, only: [:show, :edit, :update, :destroy, :close, :reopen, :make_inprogress]
+  before_action :set_service_request, except: [:index]
   before_action :authenticate_user!
   def index
     @service_requests = ServiceRequest.order("created_at DESC")

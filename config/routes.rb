@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :inventory_reports
   resources :service_requests do
+    resources :activity, module: :service_requests, only: [:new, :create]
     member do
       patch :close
       patch :reopen
