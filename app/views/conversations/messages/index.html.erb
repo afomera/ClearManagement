@@ -10,7 +10,7 @@
 
 <hr>
 
-<% @conversation.messages.each do |message| %>
+<% @conversation.messages.order("created_at ASC").each do |message| %>
 <div class="clearfix <%= message.id %>">
   <div class="alert <%= message.from ? 'alert-info message-inbound' : 'alert-success message-outbound' %>">
     <%= message.body %>
