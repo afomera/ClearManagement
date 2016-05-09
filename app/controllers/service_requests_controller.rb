@@ -1,5 +1,5 @@
 class ServiceRequestsController < ApplicationController
-  before_action :set_service_request, except: [:index, :new, :create]
+  before_action :set_service_request, except: [:index, :new, :create, :in_progress, :open]
   before_action :authenticate_user!
   def index
     @service_requests = ServiceRequest.order("created_at DESC")
