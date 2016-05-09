@@ -19,6 +19,7 @@
         <th>Upgrade Arms:</th>
         <th>VoIPs:</th>
         <th>Trimasts:</th>
+        <th>Routers:</th>
         <th>Notes:</th>
         <th>Date</th>
         <% if policy(InventoryReport).edit? || policy(InventoryReport).destroy? %>
@@ -40,6 +41,7 @@
         <td><%= inventory_report.upgradearm_count %></td>
         <td><%= inventory_report.voip_count %></td>
         <td><%= inventory_report.trimast_count %></td>
+        <td><%= inventory_report.routers %></td>
         <td><%= inventory_report.notes %></td>
         <td><%= local_time inventory_report.created_at %></td>
         <td>
@@ -80,6 +82,7 @@
         <td><%= total.upgradearm_count %> upgrade arms</td>
         <td><%= total.voip_count %> VoIPs</td>
         <td><%= total.trimast_count %> trimasts</td>
+        <td><%= total.routers_count %> routers</td>
         <td></td>
         <td></td>
         <td></td>

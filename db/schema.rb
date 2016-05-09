@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508221010) do
+ActiveRecord::Schema.define(version: 20160509044710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(version: 20160508221010) do
     t.integer  "upgradearm_count"
     t.integer  "raven_upgrade_kit_count"
     t.text     "notes"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "routers",                 default: 0
   end
 
   create_table "messages", force: :cascade do |t|
