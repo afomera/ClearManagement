@@ -6,7 +6,6 @@ This application serves a few purposes for my day job, focusing on improving coo
 - Refactor Inventory Reports to make room for Wireless Routers & Technician selection via dropdown
 - Figure out a way to scope Inventory Reports weekly, so on Monday when reports are entered it goes for a week until the next Monday.
 - Finish up Service Request's functionality.
-- Add 'Activity' to Service Requests to allow users to update ServiceRequests with notes/actions taken.
 - Allow the ability to upload photos to Service Requests. (Useful for things like Speedtests/Damages etc.)
 - Determine a way to have notifications for Messages/Service Requests etc.
 - Metrics for service requests, most common complaint, reasons for issues etc.
