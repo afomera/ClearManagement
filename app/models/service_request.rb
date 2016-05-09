@@ -1,6 +1,7 @@
 class ServiceRequest < ActiveRecord::Base
   validates_presence_of :customer_name, :address, :description
-
+  has_many :activities
+  
   scope :status, -> (status) { where(status: status) }
 
   def customer_phone_number

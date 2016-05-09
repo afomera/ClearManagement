@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504025929) do
+ActiveRecord::Schema.define(version: 20160508221010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "service_request_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "activities", ["service_request_id"], name: "index_activities_on_service_request_id", using: :btree
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "user_id"
@@ -109,6 +120,8 @@ ActiveRecord::Schema.define(version: 20160504025929) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "activities", "service_requests"
+  add_foreign_key "activities", "users"
   add_foreign_key "conversations", "technicians"
   add_foreign_key "conversations", "users"
   add_foreign_key "messages", "conversations"

@@ -78,18 +78,40 @@
 
 <hr>
 <h3>Activity</h3>
+<% if @service_request.activities.empty? %>
+  <h4>There have been no activity on this Service Request yet.</h4>
+  <p>Type below to send the first update.</p>
+<% else %>
+  <% @service_request.activities.includes(:user).order("created_at ASC").each do |activity| %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-info">
 
-<div class="row">
-
-  <div class="col-md-12">
-    <div class="panel panel-info">
-
-      <div class="panel-heading">
-        <strong>Posted by:</strong> <%= current_user.full_name %>
-      </div>
-      <div class="panel-body">
-        I just got to the cx location. There's a big hole in the wall where the ethernet jack should be
+          <div class="panel-heading">
+            <div class="pull-right">
+            <%= local_time_ago activity.created_at %>&nbsp;<%= fa_icon 'clock-o' %>
+            </div>
+            <strong>Posted by:</strong> <%= activity.user.full_name %>
+          </div>
+          <div class="panel-body">
+            <%= activity.body %>
+          </div>
+        </div>
       </div>
     </div>
+  <% end %>
+<% end %>
+
+<% unless @service_request.status == "closed" %>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_for (@service_request.activities.new), url: service_request_activity_index_path(@service_request) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :body, class: 'form-control', placeholder: 'Type an update to send' %>
+        </div>
+          <%= f.submit 'Add Update', class: 'btn btn-primary' %>
+      <% end %>
+
+    </div>
   </div>
-</div>
+<% end %>
