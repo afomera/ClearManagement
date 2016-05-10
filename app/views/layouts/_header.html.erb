@@ -97,6 +97,11 @@
                 <%= fa_icon 'comments-o fa-fw', text: 'Conversations' %>
             <% end %>
           </li>
+          <li>
+            <%= link_to conversations_path, remote: true, data: {toggle: "modal", target: "#conversationsModal"} do %>
+              <%= fa_icon 'comments-o fa-fw', text: 'Launch Conversations' %>
+            <% end %>
+          </li>
       </ul>
     <% end %>
       <!--<form class="navbar-form navbar-right" role="search">
