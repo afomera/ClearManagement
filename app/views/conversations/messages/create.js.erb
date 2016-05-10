@@ -1,0 +1,2 @@
+$('#new_message').trigger("reset");// Clear the field of the previously sent message
+$("<%= escape_javascript(render @message) %>").appendTo("#messages");

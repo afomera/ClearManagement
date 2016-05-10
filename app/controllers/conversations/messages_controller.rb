@@ -15,11 +15,16 @@ class Conversations::MessagesController < ApplicationController
     # Manually set the fields used for processing SMSs later
     @message.update(to: @conversation.technician.phone_number, status: 'pending', direction: 'outbound-api')
 
-    if @message.save
-      SendSmsJob.perform_later(@message)
-      redirect_to conversation_messages_path(@conversation)
-    else
-      redirect_to conversation_messages_path(@conversation), notice: 'Something went wrong. Please try again'
+    respond_to do |format|
+      if @message.save
+        SendSmsJob.perform_later(@message)
+        format.html { redirect_to conversation_messages_path(@conversation), notice: 'Message was successfully created.' }
+        format.js   {}
+        format.json { render json: @message, status: :created, location: @message }
+      else
+        format.html { redirect_to conversation_messages_path(@conversation), notice: 'Something went wrong. Please try again' }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
     end
   end
 
