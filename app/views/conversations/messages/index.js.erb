@@ -1,0 +1,1 @@
+$("#messages").html("<%= escape_javascript render(@conversation.messages.order('created_at ASC')) %>");

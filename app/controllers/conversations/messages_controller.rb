@@ -4,6 +4,10 @@ class Conversations::MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:reply]
 
   def index
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

@@ -11,8 +11,29 @@
 
   <hr>
   <div id="messages">
-    <%= render @conversation.messages.order("created_at ASC") %>
+    <%= render @conversation.messages.order('created_at ASC') %>
   </div>
 
   <%= render 'form', remote: true, :conversation => @conversation %>
 </div>
+
+<script>
+  $(document).on('page:change', function() {
+    var $messagesContainer = $('#messages');
+    var messagesPolling;
+
+    if ($messagesContainer.length) {
+      messagesPolling = setInterval(fetchMessages, 15000);
+      $(document).on('page:change', clearPolling);
+    }
+
+    function clearPolling() {
+      clearInterval(messagesPolling);
+      $(document).off('page:change', clearPolling);
+    }
+
+    function fetchMessages() {
+      $.getScript("/conversations/<%= @conversation.id %>/messages");
+    }
+  });
+</script>
