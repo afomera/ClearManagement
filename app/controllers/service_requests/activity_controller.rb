@@ -13,7 +13,7 @@ class ServiceRequests::ActivityController < ApplicationController
     if @activity.save
       redirect_to service_request_path(@service_request), notice: 'Activity has been added'
     else
-      render 'new'
+      redirect_to service_request_path(@service_request), alert: 'Activity could not be added. Please try again.'
     end
   end
 
