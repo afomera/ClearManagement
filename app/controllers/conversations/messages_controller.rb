@@ -40,11 +40,15 @@ class Conversations::MessagesController < ApplicationController
     body = params[:Body]
     status = params[:SmsStatus]
     direction = 'inbound'
+    message_sid = params[:MessageSid]
 
     # Find the conversation it should belong to.
     technician = Technician.where("phone_number like ?", "%#{from}%").first
     @conversation = Conversation.where(technician: technician).first
-    @conversation.messages.build(body: body, direction: direction, status: status, from: from).save
+    if body.blank?
+      body = "[attached image - no message attached]"
+    end
+    @conversation.messages.build(body: body, direction: direction, status: status, from: from, sid: message_sid).save
     # the head :ok tells everything is ok
     # This stops the nasty template errors in the console
     head :ok, content_type: "text/html"
