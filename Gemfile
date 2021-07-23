@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'simple_form', '~> 3.2.1'
-gem 'devise', '~> 3.5.8'
+gem 'devise', '~> 4.8.0'
 gem 'font-awesome-rails'
 gem 'local_time'
 gem 'pundit' # For authorizing
